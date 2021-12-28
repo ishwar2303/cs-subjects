@@ -1,0 +1,29 @@
+IPv4 and IPv6
+
+Ipv4 -> Internet protocol version 4
+Ipv6 -> version 6
+
+
+Ipv4 -> 32 bit address length
+Ipv6 -> 128 bit address length
+
+
+Ipv4 -> generate 4.2x10^9 address space
+Ipv6 -> generate 3.4x10^38 address space
+
+
+Ipv4 -> It contain checksum field
+Ipv6 -> checksum field not present
+
+
+Ipv4 -> encryption and authentication facility not available
+Ipv6 -> available
+
+
+Ipv4 -> fragmentaion is done by sender and forwarding routers
+Ipv6 -> only by sender
+
+
+
+
+

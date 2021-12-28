@@ -1,0 +1,86 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: -webkit-pictograph;
+    color:rgb(87, 87, 87);
+}
+.highcharts-grid-line, .highcharts-tick{
+    display:none;
+}
+.highcharts-title {
+    font-weight: bold;
+}
+.highcharts-text-outline{
+    stroke: none;
+    fill: rgb(0, 0, 0);
+}
+
+.highradius-text-g {
+    color: #8fd163;
+}
+
+.highradius-bg-g {
+    background: #8fd163;
+}
+
+.highradius-text-b {
+    color: #4fc4f8;
+}
+
+.highradius-bg-b {
+    background: #4fc4f8;
+}
+
+.highradius-text-o {
+    color: #fc7500;
+}
+
+.highradius-bg-o {
+    background: #fc7500;
+}
+.wrapper {
+    display: flex;
+    background: #dadada;
+}
+.wrapper > div{
+    flex: 1;
+    margin: 10px 0px;
+    margin-left: 10px;
+
+    border-radius: 10px;
+}
+.wrapper > div:nth-child(2){
+    margin-right: 10px;
+}
+.right{
+    background: #dadada;
+    display: flex;
+    margin-left: 0;
+    flex-direction: column;
+}
+.right > div{
+    flex: 1;
+    border-radius: 10px;
+    background: white;
+}
+.right > div:nth-child(1) {
+    margin-bottom: 10px;
+}
+
+.right > div:nth-child(2) {
+    display: flex;
+}
+.right  div {
+    border-radius: 10px;
+}
+.activity-count {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 140px;
+}
+.activity-count div {
+    font-weight: bold;
+    color: rgb(87, 87, 87);
+}

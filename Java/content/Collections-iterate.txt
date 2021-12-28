@@ -1,0 +1,128 @@
+import java.util.HashSet;
+import java.util.HashMap; // O(1) arbitrary order
+// import java.util.LinkedHashMap; // O(1) insertion order
+// import java.util.TreeMap; // O(log(n)) sorted order
+import java.util.ArrayList; // dynamic array implementation
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.Collections;
+
+public class Main
+{
+    public static void iterateSet() {
+        HashSet<String> set = new HashSet<String>();
+        
+        set.add("john");
+        set.add("robert");
+        set.add("kent");
+        
+        Iterator itr = set.iterator();
+        while(itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void iterateMap() {
+        HashMap<String, Integer> hm = new HashMap<>();
+        hm.put("john", 99);
+        hm.put("robert", 87);
+        hm.put("kent", 92);
+        
+        Iterator itr = hm.entrySet().iterator();
+        
+        while(itr.hasNext()) {
+            Map.Entry map = (Map.Entry)itr.next();
+            System.out.println(map.getKey() + "->" + map.getValue());
+        }
+        
+        for(String key : hm.keySet()) {
+            System.out.print(hm.get(key) + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void iterateList() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+        list.add(7);
+        list.add(13);
+        list.add(15);
+        list.add(1);
+        list.add(18);
+        
+        // sort array list
+        Collections.sort(list);
+        
+        for(int i=0; i<list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+        
+        System.out.println();
+        
+        Collections.sort(list, Collections.reverseOrder());
+        
+        Iterator itr = list.iterator();
+        while(itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
+        System.out.println();
+        
+    }
+    
+    public static void iterateStack() {
+        Stack<Integer> s = new Stack<>();
+        s.push(10);
+        s.push(20);
+        s.push(30);
+        s.push(40);
+        s.push(50);
+        
+        s.pop();
+        s.pop();
+        
+        System.out.println("Top Value in Stack : " + s.peek());
+    }
+    
+    public static void iterateQueue() {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(10);
+        q.add(20);
+        q.add(30);
+        
+        System.out.println("Front : " + q.peek());
+        System.out.println("Front : " + q.peek());
+        System.out.println("Front : " + q.poll());
+        System.out.println("Front : " + q.peek());
+    }
+    
+    public static void iterateLinkedList() {
+        LinkedList<Character> list = new LinkedList<>();
+        list.addFirst('a');
+        list.addFirst('b');
+        list.add('c');
+        list.addLast('d');
+        // b -> a -> c -> d
+        list.removeFirst();
+        list.remove(2);
+        list.removeLast();
+        Iterator itr = list.iterator();
+        while(itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
+    }
+    
+	public static void main(String[] args) {
+	    
+	   // iterateList();
+	   // iterateSet();
+	   // iterateMap();
+	   // iterateStack();
+	   // iterateQueue();
+	    iterateLinkedList();
+	}
+}

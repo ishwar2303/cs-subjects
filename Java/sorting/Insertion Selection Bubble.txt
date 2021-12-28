@@ -1,0 +1,74 @@
+import java.util.Scanner;
+import java.util.Vector;
+import java.util.Collections;
+
+public class Main
+{
+    public static void insertionSort(Vector<Integer> arr) {
+        for(int i=1; i<arr.size(); i++) {
+            int key = arr.get(i);
+            int j = i-1;
+            while(j>=0 && arr.get(j) > key) {
+                arr.set(j+1, arr.get(j));
+                j--;
+            }
+            arr.set(j+1, key);
+        }
+        printVector(arr, "Insertion Sort");
+    }
+    
+    public static void selectionSort(Vector<Integer> arr) {
+        for(int i=0; i<arr.size()-1; i++) {
+            int index = i;
+            for(int j=i+1; j<arr.size(); j++) {
+                if(arr.get(index) > arr.get(j)) {
+                    index = j;
+                }
+            }
+            // swap
+            int temp = arr.get(i);
+            arr.set(i, arr.get(index));
+            arr.set(index, temp);
+        }
+        printVector(arr, "Selection Sort");
+    }
+    
+    public static void bubbleSort(Vector<Integer> arr) {
+        for(int i=0; i<arr.size(); i++) {
+            for(int j=0; j<arr.size()-i-1; j++) {
+                if(arr.get(j) > arr.get(j+1)) {
+                    int temp = arr.get(j);
+                    arr.set(j, arr.get(j+1));
+                    arr.set(j+1, temp);
+                }
+            }
+        }
+        printVector(arr, "Bubble Sort");
+    }
+    
+    public static void printVector(Vector<Integer> arr, String status) {
+        System.out.print(status + " : ");
+        for(Integer val : arr) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
+    
+	public static void main(String[] args) {
+	    
+	    Scanner scan = new Scanner(System.in);
+	    
+		int n = scan.nextInt();
+		System.out.println(n);
+		Vector<Integer> v = new Vector<>(n);
+		for(int i=0; i<n; i++) {
+		    int temp = scan.nextInt();
+		    v.add(temp);
+		}
+		insertionSort((Vector)v.clone());
+		selectionSort((Vector)v.clone());
+		bubbleSort((Vector)v.clone());
+		Collections.sort(v, Collections.reverseOrder());
+		printVector(v, "Collection Sort");
+	}
+}

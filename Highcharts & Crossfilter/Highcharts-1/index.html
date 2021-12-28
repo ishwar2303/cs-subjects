@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- revision.css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Crossfilter -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+
+    <title>Dashboard | Highradius</title>
+
+</head>
+<body>
+    <div class="wrapper" style="height:100vh;">
+        <div id="graph-1"></div>
+        <div class="right">
+            <div id="graph-2"></div>
+            <div>
+                <div class="activity-count">
+                    <div>
+                        <div>Untouched : <span id="untouched"></span>
+                        </div>
+                    </div>
+                    <div>Touched   : <span id="touched"></span></div>
+                </div>
+                <div id="graph-3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- main.js, dataset.js -->
+    <script src="public/js/data/dataset.js"></script>
+
+    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/graph-1.js"></script>
+    <script src="assets/js/graph-2.js"></script>
+    <script src="assets/js/graph-3.js"></script>
+    <script src="assets/js/update-chart.js"></script>
+</body>
+</html>
+

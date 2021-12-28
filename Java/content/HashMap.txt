@@ -1,0 +1,60 @@
+import java.util.HashMap;
+public class Main
+{
+    
+    public static void countOccurrence(String str) {
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        char[] arr = str.toCharArray();
+        for(Character c : arr) {
+            if(map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            }
+            else map.put(c, 1);
+        }
+        
+        for(char key : map.keySet()) {
+            System.out.println(key + " -> " + map.get(key));
+        }
+    }
+    
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        
+        map.put("john", 190);
+        map.put("robert", 240);
+        map.put("carl", 150);
+        
+        // traverse through map using forEach
+        map.forEach((k, v) -> {
+            System.out.println(k + " : " + (v + 10));
+        });
+       
+        // update value
+        map.replace("john", 3030232);
+        System.out.println(map.get("john"));
+        
+        // get all keys
+        for(String key : map.keySet()) {
+            System.out.print(key + " ");
+        }
+        System.out.println();
+        
+        // check if key is present or not
+        System.out.println(map.containsKey("robert"));
+        System.out.println(map.containsKey("elijah"));
+        
+        
+        // count occurrence/frequency
+        String str = "abcdccabcdecbdcadbcea";
+        countOccurrence(str);
+        
+        // remove a key
+        map.remove("john");
+        
+        // size of map
+        System.out.println("Size : " + map.size());
+        
+        // check if map is empty or not
+        System.out.println(map.isEmpty());
+    }
+}

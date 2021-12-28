@@ -1,0 +1,46 @@
+Program 
+A program is set of instructions to perform specific operations.
+
+Process
+A process is program in execution that allows you to perform appropriate actions in a program.
+It can be defined as execution unit where a program runs.
+OS create, schedule and terminates the processes.
+A process operations can be easily controlled with the help of PCB (Process Control Block).
+It contains all the crucial information such as process id, priority, state, content etc.
+
+Thread 
+It is a segment/part of a process.
+A process can have multiple threads, all executing at the same time.
+It is fundamental basic unit of CPU utilization.
+It helps to improve the performance uisng parallelism as it is lightweight which can be easily schedulded.
+Multiple threads share information like data, files, code etc.
+
+Process takes more time for context switching than threads.
+Process doesn't share data whereas threads share data with each other.
+
+Properties of process
+-> Creation of each process require separate system calls for each process.
+-> It is an isolated execution unit that doesn't share data
+-> Processes use the IPC(Inter-Process communication)
+-> A process has its stack, heap memory and data map.
+
+Properties of Thread
+-> Single system call can create more than one thread.
+-> Thread share data and information.
+-> Threads shares instructions, global and heap regions. However, it has its register and stack.
+-> Communication between threads can be achieved using shared memory
+
+
+Multithreading
+It refers to multiple thread execution within an operating system.
+In simple terms two or more threads of a same process executing at the same time.
+
+Why multithreading
+Multithreading leads to maximum CPU utilization by multitasking.
+
+
+
+
+
+
+

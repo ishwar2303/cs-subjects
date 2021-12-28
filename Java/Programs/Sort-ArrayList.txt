@@ -1,0 +1,45 @@
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
+class LengthComparator implements Comparator<String> {
+    public int compare(String a, String b) {
+        Integer la = a.length();
+        Integer lb = b.length();
+        if(la == lb) {
+            return a.compareTo(b);
+        }
+        else return la - lb;
+    }
+}
+
+public class Main
+{
+    public static void printList(ArrayList<String> list) {
+        for(String name : list)
+            System.out.print(name + " ");
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        String[] names = {"ishwar", "arjun", "tapas", "vikram", "anuj", "bheem", "jatin", "abhishek", "neeraj", "saurav"};
+        ArrayList<String> list =  new ArrayList<String>(Arrays.asList(names));
+        printList(list);
+        
+        // sort ascending
+        Collections.sort(list);
+        printList(list);
+        
+        // sort descending
+        Collections.sort(list, Collections.reverseOrder());
+        printList(list);
+        
+        // sort using comparator
+        Collections.sort(list, new LengthComparator());
+        printList(list);
+        
+        
+    }
+
+}

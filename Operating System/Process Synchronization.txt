@@ -1,0 +1,14 @@
+Process Synchronization
+
+Cooperating process
+-> A cooperating process is a process that can affect or get affected by some other process.
+
+
+Race Condition
+-> A condition where several process access and manipulate the same data.
+Therefore it must be ensure that at a given point of time only one process is accessing a resource.
+
+
+Critical Section
+-> It is a section where shared variable can be accessed.
+Only one process can execute in its critical section at a time.

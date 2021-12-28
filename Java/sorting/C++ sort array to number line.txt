@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int comparator(int a, int b) {
+    if((a >= 0 && b >= 0) || (a <= 0 && b <= 0)) {
+        return a < b ? 1 : 0;
+    }
+    else if(a > 0 && b < 0) {
+        return 0;
+    }
+    else if(a < 0 && b > 0) {
+        return 1;
+    }
+}
+
+void complexSort(vector<int> arr) {
+    sort(arr.begin(), arr.end(), comparator);
+    for(int i=0; i<arr.size(); i++)
+        cout << arr[i] << " ";
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i=0; i<n; i++)
+        cin >> arr[i];
+    
+    complexSort(arr);
+
+    return 0;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highchart</title>
+
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Crossfilter -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="graph-1"></div>
+    </div>
+    <script src="assets/js/data/dataset.js"></script>
+    <script>
+        'use strict';
+
+        const preparePieSeries = (series) => {
+            let data = [];
+            series.forEach((o) => {
+                let temp = {
+                    name: o.key,
+                    y: o.value
+                }
+                data.push(temp);
+            })
+            return data;
+        }
+
+        let output = document.getElementById('output');
+        // crossfilter logic
+        var cf = crossfilter(dataset);
+        var customerNameDim = cf.dimension(d => d.customer_name);
+        var series = customerNameDim.group().reduceSum(d => d.collected_amount).top(10);
+        series.sort((d1, d2) => {
+            return d2.value - d1.value;
+        })
+        series = series.map((el) => {
+            return {
+                key: el.key, // customer name
+                value: Number(el.value.toFixed(2)) // collected amount
+            }
+        })
+        series = preparePieSeries(series);
+    </script>
+
+
+    <script>
+        // Build the chart
+        Highcharts.setOptions({
+            colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+                return {
+                    radialGradient: {
+                        cx: 0.5,
+                        cy: 0.3,
+                        r: 0.7
+                    },
+                    stops: [
+                        [0, color],
+                        [1, Highcharts.color(color).brighten(-0.6).get('rgb')] // darken
+                    ]
+                };
+            })
+        })
+        var customerCollectionChartOptions = {
+            chart: {
+                renderTo: 'graph-1',
+                plotBackgroundColor: '#f3f3f3',
+                plotBorderWidth: 5,
+                plotShadow: true,
+                type: 'pie'
+            },
+            title: {
+                text: 'Top 10 Customers collection'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
+            },
+            xAxis : {
+                categories: series.categories
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Collection',
+                data: series
+            }]
+        }
+        var customerCollectionsChart  = Highcharts.chart(customerCollectionChartOptions); 
+        
+    </script>
+</body>
+</html>

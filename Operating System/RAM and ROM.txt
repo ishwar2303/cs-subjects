@@ -1,0 +1,37 @@
+RAM vs ROM
+
+RAM Random Access Memory
+The information stored in this type of memory is lost when the power supply to device is switched off.
+It is generally known as main memory or volatile memory of the computer system.
+
+RAM Types
+DRAM   -> Dynamic RAM
+SRAM   -> Static RAM
+SDRAM  -> Synchronous Dynamic RAM high clock speed
+DDR
+
+
+ROM Read Only Memory
+It is permanent type of memory.
+Its content are not lost when the power supply to device is switched off.
+The computer manufacturer decides the information in ROM, and its permanently stored at the time of manufacturing, 
+which cannot be overwritten by the user.
+
+ROM Types
+EPROM    -> Erasable Programmable Read only memory, can be earased by exposing the memory to ultraviolet light
+EEPROM   -> Electrically Erasable Programmable Read only memory , it stores and deletes instruction on speacial circuit
+PROM     -> Programmable Read only memory, written using a particular device
+Mask ROM -> MROM -> contents can be programmed by integrated circuit manufacturer
+
+
+
+Characterstics of RAM
+RAM chips are used in the normal operations of a computer for starting and loading os and applications.
+Much faster than read from and write type memory
+
+Characterstics of ROM
+Data can be written only once. However, once written can be read any number of times.
+It is used mainly in the startup process of computer.
+
+
+

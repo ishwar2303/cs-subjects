@@ -1,0 +1,25 @@
+// Read Input
+
+import java.util.Scanner;
+
+Scanner scan = new Scanner(System.in);
+
+nextInt();
+
+nextFloat();
+
+nextDouble();
+
+nextByte();
+
+nextLine();
+
+nextBoolean();
+
+nextLong();
+
+nextShort();
+
+nextBigInteger();
+
+nextBigDecimal();

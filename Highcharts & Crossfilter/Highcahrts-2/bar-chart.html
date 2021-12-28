@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highchart</title>
+
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Crossfilter -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <style>
+        * {
+            margin : 0;
+            padding: 0;
+        }
+        .wrapper {
+            height: 100vh;
+        }
+        .wrapper  div {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="graph-1"></div>
+    </div>
+    <script src="assets/js/data/dataset.js"></script>
+    <script>
+        'use strict';
+        // prepare series for chart format
+        const preparePieSeries = (series) => {
+            let categories = [];
+            let data = [];
+            series.forEach((o) => {
+                categories.push(o.key)
+                data.push(o.value)
+            })
+            return {
+                categories,
+                data
+            };
+        }
+
+        // round off values to K, M, B => Thousand, Million, Billion
+        const roundOff = (amount) => {
+            let B = 1000000000;
+            let M = 1000000;
+            let K = 1000;
+            let c = '';
+            if(amount > B) {
+                amount /= B;
+                c = 'B';
+            }
+            else if(amount > M) {
+                amount /= M;
+                c = 'M';
+            }
+            else if(amount > K) {
+                amount /= K;
+                c = 'K';
+            }
+            amount = amount.toFixed(2);
+            return '<b>' + amount + c + ' $' + '</b>';
+        }
+
+        let output = document.getElementById('output');
+        // crossfilter logic
+        var cf = crossfilter(dataset);
+        var customerNameDim = cf.dimension(d => d.customer_name);
+        var series = customerNameDim.group().reduceSum(d => d.collected_amount).top(10);
+        series.sort((d1, d2) => {
+            return d2.value - d1.value;
+        })
+        series = series.map((el) => {
+            return {
+                key: el.key, // customer name
+                value: Number(el.value.toFixed(2)) // collected amount
+            }
+        })
+        series = preparePieSeries(series);
+    </script>
+
+    <script>
+        // Build the chart
+        Highcharts.setOptions({
+            colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+                return {
+                    radialGradient: {
+                        cx: 0.8,
+                        cy: 0.5,
+                        r: 0.9
+                    },
+                    stops: [
+                        [0, color],
+                        [1, Highcharts.color(color).brighten(-0.6).get('rgb')] // darken
+                    ]
+                };
+            })
+        })
+        var customerCollectionChartOptions = {
+            chart: {
+                renderTo: 'graph-1',
+                type: 'bar'
+            },
+            title: {
+                text: 'Top 10 Customers Collection'
+            },
+            xAxis: {
+                categories: series.categories,
+                title: {
+                    text: null
+                },
+                labels: {
+                    align: 'left',
+                    x: 3,
+                    y: -20
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Collection',
+                    align: 'high'
+                }
+            },
+            tooltip: {
+                valueSuffix: 'M',
+                formatter: function() {
+                    return this.x + ' ' + roundOff(this.y)
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            
+            credits: {
+                enabled: false
+            },
+            series: [{
+                data: series.data
+            }]
+        }
+        var customerCollectionsChart  = Highcharts.chart(customerCollectionChartOptions); 
+        
+    </script>
+</body>
+</html>

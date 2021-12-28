@@ -1,0 +1,105 @@
+class Main {
+    
+    public void solve() {
+        // create string array
+        String[] fruits = {"apple", "mango", "orange", "banana"};
+        
+        // print array using for loop
+        for(String fruitName : fruits)
+            System.out.println(fruitName);
+        
+        // update string at certain index
+        fruits[0] = "Pomegranate";
+        System.out.println(fruits[0]);
+        
+        // print using for loop iterating with index
+        for(int i=0; i<fruits.length; i++) {
+            System.out.println(fruits[i]);
+        }
+        
+        // Split string based on delimeter
+        String str = "Do good and good will come to you.";
+        String[] words = str.split(" ");
+        for(String w : words)
+            System.out.println(w);
+        
+        // concatenate strings using + operator
+        String firstName = "Ishwar";
+        String lastName = "Baisla";
+        String fullName = firstName + " " + lastName;
+        System.out.println(fullName);
+        
+        // concatenate strings using concat function
+        System.out.println(firstName.concat(lastName));
+        
+        // traverse character by character in a String
+        for(int i=0; i<str.length(); i++) {
+            System.out.print(str.charAt(i) + " ");
+        }
+        System.out.println(); // print new line
+        
+        // unicode of characters (ASCII value)
+        for(int i=0; i<firstName.length(); i++) {
+            System.out.println(firstName.charAt(i) + " -> " + firstName.codePointAt(i));
+        }
+        
+        // compare strings
+        // if equal returns 0
+        // if calling object string is greater lexicographically then returns number > 0
+        // else less than 0
+        // returned number is difference of ascii values 
+        String a = "Hello";
+        String b = "Hello";
+        String c = "World";
+        String d = "Great";
+        
+        System.out.println(a.compareTo(b));
+        System.out.println(a.compareTo(c));
+        System.out.println(a.compareTo(d));
+        
+        // check if a String contains a sequence or not
+        String s = "Nothing in the world can trouble you as much as your own thoughts.";    
+        System.out.println(s.contains("as"));
+        
+        // returns the character array
+        char[] charArr = {'I', 'S', 'H', 'W', 'A', 'R'};
+        System.out.println("Length : " + charArr.length);
+        String stringFromCharArray = String.copyValueOf(charArr);
+        System.out.println(stringFromCharArray);
+     
+        char[] arr = s.toCharArray();
+        for(char ch : arr) {
+            System.out.print(ch + " ");
+        }
+        System.out.println();
+     
+        // convert to lower case
+        String str1 = "ISHWAR";
+        System.out.println(str1.toLowerCase());
+        
+        // convert to upper case
+        String str2 = "ishwar";
+        System.out.println(str2.toUpperCase());
+     
+        // trim whitespaces from both ends
+        String str3 = "        Java is easy         ";
+        System.out.println(str3.trim());
+        
+        // replace occurrence
+        String str4 = "Problem solving is difficult, coding is just about writing the solution";
+        str4 = str4.replace("is", "was");
+        System.out.println(str4);
+        
+        // format string
+        System.out.println(String.format("%.2f", 56469.24863));
+        System.out.println(String.format("%x", 101)); // hexadecimal
+        System.out.println(String.format("%b", 10)); // boolean
+    }
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Hello World!");
+        Main m = new Main();
+        m.solve();
+    }
+}

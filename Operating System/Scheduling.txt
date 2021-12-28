@@ -1,0 +1,11 @@
+Scheduling
+
+It is the process of allocating cpu to a job
+
+-> First come first serve
+
+-> Shortest job first
+
+-> Priority
+
+-> Round robin

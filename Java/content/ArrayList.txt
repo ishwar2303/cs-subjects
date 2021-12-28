@@ -1,0 +1,42 @@
+// ArrayList
+
+// returns number of elements in the list
+size();
+
+// add element at the end of the list
+add(el);
+
+// removes the element at specified position
+remove(index);
+
+// removes all elements
+clear();
+
+// returns a shallow copy
+clone();
+
+// returns true if list contain specified element
+contains(el);
+
+// returns the element
+get(index);
+
+// returns the index of first occurrence
+indexOf(el);
+
+// returns index of the last occurrence
+lastIndexOf(el);
+
+// returns true if list is empty
+isEmpty();
+
+// update the element
+set(index, el);
+
+// returns part of list
+subList(from, to);
+
+// returns array
+toArray();
+
+

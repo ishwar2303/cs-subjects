@@ -1,0 +1,53 @@
+
+        // create a crossfilter instance based on data set
+        var cf = crossfilter(dataset)
+
+        // size of dataset
+        console.log(cf.size())
+
+        // primary concepts that crossfilter uses are dimensions and groups
+        // dimension represents a property of data
+        // group tell crossfilter how to group, or aggregate, the result set.
+
+        var typeDimension = cf.dimension(d => d.type)
+        // list the top 5 rows
+        console.log(typeDimension.top(5))
+        // list the bottom 5 rows
+        console.log(typeDimension.bottom(5))
+
+        // dimension on collected_amount
+        var collectedAmountDimension = cf.dimension(d => d.collected_amount)
+        console.log(collectedAmountDimension.top(5))
+        
+        // filter datapoints based on collected amount
+        // where collected amount is greater than 2*10^7
+        console.log(collectedAmountDimension.filter(d => d > 20000000).top(5))
+        
+        // clear any filters on the dimension
+        collectedAmountDimension.filterAll()
+        console.log(collectedAmountDimension.top(5))
+        
+        // groups
+        // grous in crossfilter allow us to aggregate our data by a particular dimension
+        // and to perform some kind of operations such as count, sum or average on each group
+        var customerDimension = cf.dimension(d => d.customer_number)
+        var customerGrouping  = customerDimension.group()
+        console.log(customerGrouping.all())
+        console.log(customerGrouping.all().length)
+        // all() returns array of all groups, the returned object contain key and value attributes.
+        // all() method is faster than top(Infinity)
+
+        // group on aging bucket
+        var agingBucketDimension = cf.dimension(d => d.aging_bucket)
+        var agingBucketGrouping  = agingBucketDimension.group()
+        console.log(agingBucketGrouping.all())
+        /*
+        Grouped aging bucket
+        0: {key: "1-30", value: 1568}
+        1: {key: "181-365", value: 269}
+        2: {key: "31-60", value: 642}
+        3: {key: "61-90", value: 315}
+        4: {key: "91-180", value: 300}
+        5: {key: ">365", value: 136}
+        6: {key: "Current", value: 3518}
+        */

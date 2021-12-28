@@ -1,0 +1,20 @@
+// fill array with specified value
+Arrays.fill(arr, 0); 
+
+// copy array 
+Arrays.copyOfRange(arr, from, to);
+
+// compare two arrays
+Arrays.equals(arr1, arr2);
+
+// sort array with comparator
+Arrays.sort(arr, from, to, cmp);
+
+// convert array to string
+Arrays.toString(arr);
+
+// Search value using binary search
+Arrays.binarySearch(arr, from, to, key);
+
+// returns list 
+Arrays.asList(arr);

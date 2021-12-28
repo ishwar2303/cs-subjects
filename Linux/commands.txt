@@ -1,0 +1,73 @@
+Linux Commands
+
+1. pwd -> Current working directory absolute path
+   pwd stands for print work directory
+
+2. ls  -> list the files in the directory
+   ls -a -> to see hidden files
+
+3. cd  -> stands for change directory
+   go to different folder 
+   example : cd downloads
+
+4. mkdir -> creates a folder or directory
+
+5. rmdir -> delete a directory
+
+6. rm -> to delete files
+
+7. touch -> creates a file
+   example : touch name.txt
+
+8. man & --help -> it is used to see manual pages of command shows which way command can be used
+   example : cd --help
+   example : man cd
+
+9. cp -> to copy files 
+   it takes two argument first file to copy and second where to copy
+   example : cp new.txt /home/music/
+
+10. mv -> to move files or rename files
+    example : mv new.txt newer.txt
+
+11. locate -> searches for a file
+    example : locate -i hello
+    i is for case insensitive
+
+12. echo -> to write something into file
+    example : echo hello, my name is Ishwar >> new.txt
+
+13. cat -> command is used to view contents of a file
+
+14. nano, vi -> text editors installed in linux
+    example : nano index.html
+
+15. sudo -> stands for SuperUSer Do
+    to do work with administrative or root privileges
+    example : sudo nano some-file.config
+    use sudo as this file needs root privileges
+
+16. df -> to see disk space in each partition in the system
+
+17. du -> to know the disk usage of a file or folder
+    example : du documents
+
+18. tar -> to compress and uncompress tar files
+
+19. zip, unzip -> to compress and extract files from zip archive
+
+20. uname -> shows information about the system
+
+21. apt-get -> stands for advance packaging tool, to work with packages
+    example : to install jed
+    type : sudo apt-get install jed
+    update repository : sudo apt-get update
+
+22 chmod -> to change file permissions
+   example : chmod 755 numbers.py
+
+23. ping -> to check connection of a server
+    example : ping google.com
+
+24. hostname -> gives name in your host
+    hostname -I -> gives you your IP addess in your network
